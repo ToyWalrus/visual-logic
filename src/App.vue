@@ -12,10 +12,7 @@ const inputs = ref<IOControl[]>([
 	{ label: 'Input 2', active: false, toggleable: true },
 ]);
 
-const outputs = ref<IOControl[]>([
-	{ label: 'Output 1', active: false },
-	{ label: 'Output 2', active: false },
-]);
+const outputs = ref<IOControl[]>([{ label: 'Output 1', active: false }]);
 
 const toggleInput = (control: IOControl) => {
 	console.log('toggleInput', control);

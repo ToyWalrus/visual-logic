@@ -4,25 +4,19 @@
 		<div class="canvas-content">
 			<div class="left-side">
 				<div class="io-background">
-					<ToggleCircle
-						v-for="(control, index) in inputs"
-						:key="`left-${index}`"
-						:control="control"
-						@toggle="$emit('toggle', control)"
-						size="XL"
-					/>
+					<div class="toggle-control" v-for="(control, index) in inputs" :key="`left-${index}`">
+						<ToggleCircle :control="control" @toggle="$emit('toggle', control)" size="XL" />
+						<button>+</button>
+					</div>
 				</div>
 			</div>
 			<div class="main-area" />
 			<div class="right-side">
 				<div class="io-background">
-					<ToggleCircle
-						v-for="(control, index) in inputs"
-						:key="`right-${index}`"
-						:control="control"
-						@toggle="$emit('toggle', control)"
-						size="XL"
-					/>
+					<div class="toggle-control" v-for="(control, index) in outputs" :key="`right-${index}`">
+						<!-- <button>+</button> -->
+						<ToggleCircle :control="control" @toggle="$emit('toggle', control)" size="XL" />
+					</div>
 				</div>
 			</div>
 		</div>
@@ -105,6 +99,24 @@ defineEmits<{
 
 .right-side {
 	right: 0;
+}
+
+.toggle-control {
+	display: flex;
+	flex-direction: row;
+	justify-content: start;
+	align-items: center;
+	gap: 16px;
+}
+
+.left-side .toggle-control {
+	align-self: flex-start;
+	padding-left: 16px;
+}
+
+.right-side .toggle-control {
+	align-self: flex-end;
+	padding-right: 16px;
 }
 
 .main-area {

@@ -3,3 +3,8 @@ export interface IOControl {
 	active: boolean;
 	toggleable?: boolean;
 }
+
+export interface Connection {
+	in: IOControl;
+	out: IOControl;
+}
